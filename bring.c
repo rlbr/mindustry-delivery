@@ -23,6 +23,7 @@ void main() {
 	double resource_int = get_flag(flag, F_RESOURCE);
 	double in_core = count_from_resource_int(nucleus1, resource_int);
 	if (in_core < THRESHOLD_FULL) {
+		flag = mod_flag(flag, F_MODE, IDLE);
 		return;
 	}
 	if (!unit_within(nx, ny, 2)) {
