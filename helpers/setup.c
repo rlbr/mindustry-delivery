@@ -20,7 +20,7 @@ void setup() {
 		write(SILICON, cell1, OFFSET_RESOURCE_NEEDED + index);
 		index++;
 		// set len/ends for fields
-		int sum = BLEN_F_RESOURCE + BLEN_F_MODE + BLEN_F_MOVING + BLEN_F_IDENT;
+		int sum = BLEN_F_RESOURCE + BLEN_F_MODE + BLEN_F_VAULT_ID + BLEN_F_IDENT;
 
 		write(BLEN_F_RESOURCE, cell1, OFFSET_BITLEN + F_RESOURCE);
 		sum = sum - BLEN_F_RESOURCE;
@@ -30,9 +30,9 @@ void setup() {
 		sum = sum - BLEN_F_MODE;
 		write(sum, cell1, OFFSET_ENDS + F_MODE);
 
-		write(BLEN_F_MOVING, cell1, OFFSET_BITLEN + F_MOVING);
-		sum = sum - BLEN_F_MOVING;
-		write(sum, cell1, OFFSET_ENDS + F_MOVING);
+		write(BLEN_F_VAULT_ID, cell1, OFFSET_BITLEN + F_VAULT_ID);
+		sum = sum - BLEN_F_VAULT_ID;
+		write(sum, cell1, OFFSET_ENDS + F_VAULT_ID);
 
 		write(BLEN_F_IDENT, cell1, OFFSET_BITLEN + F_IDENT);
 		sum = sum - BLEN_F_IDENT;

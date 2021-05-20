@@ -36,12 +36,12 @@
 // flag layout
 #define F_RESOURCE 0
 #define F_MODE 1
-#define F_MOVING 2
+#define F_VAULT_ID 2
 #define F_IDENT 3
 
 #define BLEN_F_RESOURCE 4
 #define BLEN_F_MODE 3
-#define BLEN_F_MOVING 1
+#define BLEN_F_VAULT_ID 10
 #define BLEN_F_IDENT 8
 
 // application constants
