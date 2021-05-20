@@ -25,7 +25,7 @@ double get_low_resource_int() {
 void main() {
 	setup();
 	ubind("flare");
-	int flag = carrier_state();
+	int flag = carrier_state(unit);
 	double ident = get_flag(flag, F_IDENT);
 	if (ident != IDENT)
 		return;
