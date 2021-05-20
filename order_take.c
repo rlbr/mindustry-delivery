@@ -30,11 +30,13 @@ void main() {
 	double ident = get_flag(flag, F_IDENT);
 	double vx = sensor(vault1, "x");
 	double vy = sensor(vault1, "y");
-	if (ident != IDENT)
+	if (ident != IDENT) {
 		return;
+	}
 	double mode = get_flag(flag, F_MODE);
-    if ((mode == LOADING) | (mode == CLAIMED))
-        return;
+	if ((mode == LOADING) | (mode == CLAIMED)) {
+		return;
+	}
 	double resource_int = get_low_resource_int();
 	if (mode == IDLE) {
 		double count = count_from_resource_int(vault1, resource_int);
