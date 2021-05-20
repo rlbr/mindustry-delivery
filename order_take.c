@@ -33,8 +33,8 @@ void main() {
 	if (ident != IDENT)
 		return;
 	double mode = get_flag(flag, F_MODE);
-	if (mode == LOADING)
-		return;
+    if ((mode == LOADING) | (mode == CLAIMED))
+        return;
 	if (mode == IDLE) {
 		double resource_int = get_low_resource_int();
 		double count = count_from_resource_int(vault1, resource_int);
@@ -45,11 +45,12 @@ void main() {
 		}
 
 		// claim any idle units immediately
+        flag = mod_flag(flag, F_MODE, CLAIMED);
+        unit_flag(flag);
+        // set relevant parameters
         flag = mod_flag(flag, F_RESOURCE, resource_int);
-		unit_flag(flag);
-		flag = mod_flag(flag, F_MODE, LOADING);
-		unit_flag(flag);
 		flag = mod_flag(flag, F_VAULT_ID, this_vault_id);
+        flag = mod_flag(flag, F_MODE, LOADING);
 		unit_flag(flag);
 
 	} else {

@@ -48,6 +48,7 @@
 #define IDLE 0
 #define LOADING 1
 #define FULL 2
+#define CLAIMED 3
 // application constants
 #define IDENT 19
 #define THRESHOLD_FULL .75
