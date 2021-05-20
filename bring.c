@@ -9,7 +9,7 @@ extern struct MindustryObject unit;
 void main() {
 	setup();
 	ubind("flare");
-	int flag = carrier_state(unit);
+	int flag = sensor(unit, "flag");
 	double ident = get_flag(flag, F_IDENT);
 	if (ident != IDENT) {
 		return;
