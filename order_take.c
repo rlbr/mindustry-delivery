@@ -7,7 +7,7 @@ extern struct MindustryObject vault1;
 extern struct MindustryObject unit;
 
 double get_low_resource_int() {
-	double low_resource_int = 0;
+	double low_resource_int = read(cell1, OFFSET_RESOURCE_NEEDED);
 	double low_resource_count = 90000000;
 	double res_count;
 	double res_int;
