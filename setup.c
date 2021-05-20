@@ -1,4 +1,7 @@
 #include "consts.h"
+extern struct MindustryObject cell1;
+extern struct MindustryObject vault1;
+
 int carrier_state() {
 	struct MindustryObject unit;
 	return sensor(unit, "flag");
@@ -11,9 +14,7 @@ int compute_write_mask(int length, int end) {
 	return ~mask;
 }
 void setup() {
-	struct MindustryObject cell1;
-	struct MindustryObject vault1;
-	if (!read(cell1, 0)) {
+	if (read(cell1, 0) != true) {
 		int index;
 		// change for what resources should be carried to storage vault
 		index = 0;
