@@ -1,12 +1,13 @@
 #include "consts.h"
+#include "c2logic/builtins.h"
 extern struct MindustryObject cell1;
 extern struct MindustryObject vault1;
 
 int compute_read_mask(int length) {
 	return (1 << length) - 1;
 }
-int compute_write_mask(int length, int end) {
-	int mask = compute_read_mask(length) << end;
+int compute_write_mask(int length, int _end) {
+	int mask = compute_read_mask(length) << _end;
 	return ~mask;
 }
 void setup() {
@@ -42,13 +43,10 @@ void setup() {
 			int length = read(cell1, OFFSET_BITLEN + i);
 			write(compute_read_mask(length), cell1, OFFSET_READ_MASK + i);
 			// write
-			int end = read(cell1, OFFSET_ENDS + i);
-			write(compute_write_mask(length, end), cell1, OFFSET_WRITE_MASK + i);
+			int _end = read(cell1, OFFSET_ENDS + i);
+			write(compute_write_mask(length, _end), cell1, OFFSET_WRITE_MASK + i);
 		}
 		// mark as configured
 		write(true, cell1, 0);
 	}
-}
-void main() {
-	setup();
 }
