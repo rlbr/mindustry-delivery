@@ -45,14 +45,13 @@ void main() {
 		if (count / storage > THRESHOLD_FULL) {
 			return;
 		}
-
 		// claim any idle units immediately
-        flag = mod_flag(flag, F_MODE, CLAIMED);
-        unit_flag(flag);
-        // set relevant parameters
-        flag = mod_flag(flag, F_RESOURCE, resource_int);
+		flag = mod_flag(flag, F_MODE, CLAIMED);
+		unit_flag(flag);
+		// set relevant parameters
+		flag = mod_flag(flag, F_RESOURCE, resource_int);
 		flag = mod_flag(flag, F_VAULT_ID, this_vault_id);
-        flag = mod_flag(flag, F_MODE, LOADING);
+		flag = mod_flag(flag, F_MODE, LOADING);
 		unit_flag(flag);
 
 	} else {
