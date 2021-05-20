@@ -5,7 +5,6 @@
 #include "helpers/utils.c"
 extern struct MindustryObject cell1;
 extern struct MindustryObject unit;
-extern struct MindustryObject message2;
 void main() {
 	setup();
 	ubind("flare");
@@ -13,10 +12,7 @@ void main() {
 	int ident = get_flag(flag, F_IDENT);
 	if (ident != IDENT) {
 		flag = mod_flag(flag, F_IDENT, IDENT);
-		printdln(flag);
-		flag = mod_flag(flag, F_MODE, FULL);
-		printdln(flag);
-		printflush(message2);
+		flag = mod_flag(flag, F_MODE, IDLE);
 		unit_flag(flag);
 	}
 }

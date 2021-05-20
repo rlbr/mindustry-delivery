@@ -6,13 +6,13 @@ length_vals = [0] * 4
 class lengths(IntEnum):
     RESOURCE_INT = 0
     MODE = 1
-    MOVING = 2
+    VAULT_ID = 2
     ID = 3
 
 
 length_vals[lengths.RESOURCE_INT] = 4
 length_vals[lengths.MODE] = 3
-length_vals[lengths.MOVING] = 1
+length_vals[lengths.VAULT_ID] = 10
 length_vals[lengths.ID] = 8
 # 0000 000 0 00000000
 # rrrr mmm v iiiiiiii

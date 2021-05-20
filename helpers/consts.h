@@ -44,10 +44,12 @@
 #define BLEN_F_VAULT_ID 10
 #define BLEN_F_IDENT 8
 
+// modes
+#define IDLE 0
+#define LOADING 1
+#define FULL 2
 // application constants
 #define IDENT 19
-#define EMPTY 0
-#define FULL 1
 #define THRESHOLD_FULL .75
 #define THRESHOLD_UNIT_FULL 20
 #define INCR_TAKE 40

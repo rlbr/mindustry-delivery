@@ -1,5 +1,5 @@
-#include "consts.h"
 #include "c2logic/builtins.h"
+#include "consts.h"
 extern struct MindustryObject cell1;
 extern struct MindustryObject vault1;
 
@@ -11,7 +11,7 @@ int compute_write_mask(int length, int _end) {
 	return ~mask;
 }
 void setup() {
-	if (read(cell1, 0) != true) {
+	if (read(cell1, 0) == 0) {
 		int index;
 		// change for what resources should be carried to storage vault
 		index = 0;
@@ -47,6 +47,6 @@ void setup() {
 			write(compute_write_mask(length, _end), cell1, OFFSET_WRITE_MASK + i);
 		}
 		// mark as configured
-		write(true, cell1, 0);
+		write(floor(rand(1024)), cell1, 0);
 	}
 }

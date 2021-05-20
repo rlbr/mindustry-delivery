@@ -15,7 +15,7 @@ void main() {
 		return;
 	}
 	double mode = get_flag(flag, F_MODE);
-	if (mode != EMPTY) {
+	if (mode != LOADING) {
 		return;
 	}
 	double nx = sensor(nucleus1, "x");
@@ -25,19 +25,11 @@ void main() {
 	if (in_core < THRESHOLD_FULL) {
 		return;
 	}
-	if (unit_within(nx, ny, 4)) {
-		double count = count_from_resource_int(unit, resource_int);
-		take_from_resource_int(nucleus1, resource_int);
-		count = count_from_resource_int(unit, resource_int);
-		flag = mod_flag(flag, F_MODE, FULL);
-		flag = mod_flag(flag, F_MOVING, false);
-		unit_flag(flag);
-	} else {
-		if (get_flag(flag, F_MOVING)) {
-			return;
-		}
-		flag = mod_flag(flag, F_MOVING, true);
-		unit_flag(flag);
-		unit_approach(nx, ny, 2);
+	if (!unit_within(nx, ny, 2)) {
+		unit_move(nx, ny);
+		return;
 	}
+	take_from_resource_int(nucleus1, resource_int);
+	flag = mod_flag(flag, F_MODE, FULL);
+	unit_flag(flag);
 }
