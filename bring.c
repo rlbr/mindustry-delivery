@@ -2,13 +2,14 @@
 #include "consts.h"
 #include "setup.c"
 #include "utils.c"
+extern struct MindustryObject cell1;
+extern struct MindustryObject nucleus1;
+extern struct MindustryObject unit;
+
 void main() {
 	setup();
-	struct MindustryObject cell1;
-	struct MindustryObject nucleus1;
-	struct MindustryObject unit;
 	ubind("flare");
-	int flag = carrier_state();
+	int flag = carrier_state(unit);
 	double ident = get_flag(flag, F_IDENT);
 	if (ident != IDENT)
 		return;

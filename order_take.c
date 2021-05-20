@@ -2,9 +2,11 @@
 #include "consts.h"
 #include "setup.c"
 #include "utils.c"
+extern struct MindustryObject cell1;
+extern struct MindustryObject vault1;
+extern struct MindustryObject unit;
+
 double get_low_resource_int() {
-	struct MindustryObject vault1;
-	struct MindustryObject cell1;
 	double low_resource_int = 0;
 	double low_resource_count = 90000000;
 	double res_count;
@@ -22,9 +24,6 @@ double get_low_resource_int() {
 
 void main() {
 	setup();
-	struct MindustryObject cell1;
-	struct MindustryObject vault1;
-	struct MindustryObject unit;
 	ubind("flare");
 	int flag = carrier_state();
 	double ident = get_flag(flag, F_IDENT);

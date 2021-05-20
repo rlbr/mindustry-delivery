@@ -82,3 +82,7 @@ int mod_flag(int flag, int index, int val) {
 	return _mod_flag(flag, read(cell1, OFFSET_ENDS + index), read(cell1, OFFSET_READ_MASK + index),
 					 val);
 }
+
+int carrier_state(struct MindustryObject unit) {
+	return sensor(unit, "flag");
+}

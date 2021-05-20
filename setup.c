@@ -2,10 +2,6 @@
 extern struct MindustryObject cell1;
 extern struct MindustryObject vault1;
 
-int carrier_state() {
-	struct MindustryObject unit;
-	return sensor(unit, "flag");
-}
 int compute_read_mask(int length) {
 	return (1 << length) - 1;
 }
@@ -52,4 +48,7 @@ void setup() {
 		// mark as configured
 		write(true, cell1, 0);
 	}
+}
+void main() {
+	setup();
 }
