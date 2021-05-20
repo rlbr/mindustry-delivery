@@ -35,8 +35,8 @@ void main() {
 	double mode = get_flag(flag, F_MODE);
     if ((mode == LOADING) | (mode == CLAIMED))
         return;
+	double resource_int = get_low_resource_int();
 	if (mode == IDLE) {
-		double resource_int = get_low_resource_int();
 		double count = count_from_resource_int(vault1, resource_int);
 		double storage = sensor(vault1, "itemCapacity");
 		// don't be greedy
