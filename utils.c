@@ -1,5 +1,6 @@
 #include "c2logic/builtins.h"
 #include "consts.h"
+extern struct MindustryObject cell1;
 void take_from_resource_int(struct MindustryObject obj, int resource_int) {
 	if (resource_int == LEAD)
 		unit_item_take(obj, "lead", INCR_DROP);
@@ -64,23 +65,24 @@ double count_from_resource_int(struct MindustryObject obj, int resource_int) {
 	if (resource_int == METAGLASS)
 		return sensor(obj, "metaglass");
 }
-int _get_flag(int flag, int end, int mask) {
-	int val = flag >> end;
+int _get_flag(int flag, int _end, int mask) {
+	int val = flag >> _end;
 	return val & mask;
 }
-int _mod_flag(int flag, int end, int mask, int val) {
+int _mod_flag(int flag, int _end, int mask, int val) {
 	flag = flag & mask;
-	val = val << end;
+	val = val << _end;
 	return flag | val;
 }
 int get_flag(int flag, int index) {
-	struct MindustryObject cell1;
-	return _get_flag(flag, read(cell1, OFFSET_ENDS + index), read(cell1, OFFSET_READ_MASK + index));
+	int _end = read(cell1, OFFSET_ENDS + index);
+	int mask = read(cell1, OFFSET_READ_MASK + index);
+	return _get_flag(flag, _end, mask);
 }
 int mod_flag(int flag, int index, int val) {
-	struct MindustryObject cell1;
-	return _mod_flag(flag, read(cell1, OFFSET_ENDS + index), read(cell1, OFFSET_READ_MASK + index),
-					 val);
+	int _end = read(cell1, OFFSET_ENDS + index);
+	int mask = read(cell1, OFFSET_WRITE_MASK + index);
+	return _mod_flag(flag, _end, mask, val);
 }
 
 int carrier_state(struct MindustryObject unit) {
