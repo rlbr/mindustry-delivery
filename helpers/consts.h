@@ -50,6 +50,6 @@
 #define FULL 1
 #define THRESHOLD_FULL .75
 #define THRESHOLD_UNIT_FULL 20
-#define INCR_TAKE 20
-#define INCR_DROP 20
+#define INCR_TAKE 40
+#define INCR_DROP 40
 #endif
