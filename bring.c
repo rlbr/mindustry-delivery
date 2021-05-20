@@ -1,7 +1,7 @@
 #include "c2logic/builtins.h"
-#include "consts.h"
-#include "setup.c"
-#include "utils.c"
+#include "helpers/consts.h"
+#include "helpers/setup.c"
+#include "helpers/utils.c"
 extern struct MindustryObject cell1;
 extern struct MindustryObject nucleus1;
 extern struct MindustryObject unit;
