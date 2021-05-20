@@ -43,9 +43,9 @@ void setup() {
 		// pre compute masks for read/write field to make things faster
 		for (int i = 0; i < LEN_FIELDS; i++) {
 			// read
-			write(compute_read_mask(read(cell1, OFFSET_BITLEN + i)), cell1, OFFSET_READ_MASK + i);
-			// write
 			int length = read(cell1, OFFSET_BITLEN + i);
+			write(compute_read_mask(length), cell1, OFFSET_READ_MASK + i);
+			// write
 			int end = read(cell1, OFFSET_ENDS + i);
 			write(compute_write_mask(length, end), cell1, OFFSET_WRITE_MASK + i);
 		}
