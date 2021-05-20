@@ -22,7 +22,7 @@ double get_low_resource_int() {
 	return low_resource_int;
 }
 
-void main() {
+void main_inner() {
 	setup();
 	int this_vault_id = read(cell1, 0);
 	ubind("flare");
@@ -71,4 +71,7 @@ void main() {
 		flag = mod_flag(flag, F_MODE, IDLE);
 		unit_flag(flag);
 	}
+}
+void main() {
+	main_inner();
 }
