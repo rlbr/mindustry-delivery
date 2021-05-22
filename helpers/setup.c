@@ -13,13 +13,17 @@ int compute_write_mask(int length, int _end) {
 void setup() {
 	while (!read(cell1, 0)) {
 		int index;
-		// change for what resources should be carried to storage vault
+		/* Change for what resources should be carried to storage vault.
+		   Each resource needs to be in memory starting from OFFSET_RESOURCE_NEEDED to
+		   OFFSET_RESOURCE_NEEDED + LEN_RESOURCE_NEEDED
+*/
 		index = 0;
 		write(PHASE_FABRIC, cell1, OFFSET_RESOURCE_NEEDED + index);
 		index++;
 		write(SILICON, cell1, OFFSET_RESOURCE_NEEDED + index);
 		index++;
-		// set len/ends for fields
+		/* set len/ends for fields. IDENT is supposed to be for cooperating with other logic
+		 * processors and making sure you don't steal ALL the flares on the map. */
 		int sum = BLEN_F_RESOURCE + BLEN_F_MODE + BLEN_F_VAULT_ID + BLEN_F_IDENT;
 
 		write(BLEN_F_RESOURCE, cell1, OFFSET_BITLEN + F_RESOURCE);
@@ -37,16 +41,16 @@ void setup() {
 		write(BLEN_F_IDENT, cell1, OFFSET_BITLEN + F_IDENT);
 		sum = sum - BLEN_F_IDENT;
 		write(sum, cell1, OFFSET_ENDS + F_IDENT);
-		// pre compute masks for read/write field to make things faster
+		// pre compute masks for read/write field to make things a little faster
 		for (int i = 0; i < LEN_FIELDS; i++) {
-			// read
+			// read masks
 			int length = read(cell1, OFFSET_BITLEN + i);
 			write(compute_read_mask(length), cell1, OFFSET_READ_MASK + i);
-			// write
+			// write masks
 			int _end = read(cell1, OFFSET_ENDS + i);
 			write(compute_write_mask(length, _end), cell1, OFFSET_WRITE_MASK + i);
 		}
-		// mark as configured
+		// mark as configured with a random vault id
 		if (read(cell1, OFFSET_RESOURCE_NEEDED) == PHASE_FABRIC) {
 			write(ceil(rand(1023)), cell1, 0);
 		}

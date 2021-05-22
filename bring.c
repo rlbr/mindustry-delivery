@@ -22,7 +22,7 @@ void main() {
 	double ny = sensor(nucleus1, "y");
 	double resource_int = get_flag(flag, F_RESOURCE);
 	double in_core = count_from_resource_int(nucleus1, resource_int);
-	if (in_core < THRESHOLD_FULL) {
+	if (in_core < THRESHOLD_CORE_FULL) {
 		flag = mod_flag(flag, F_MODE, IDLE);
 		return;
 	}
