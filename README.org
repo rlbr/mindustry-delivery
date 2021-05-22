@@ -1,20 +1,20 @@
-* How to use:
-** Requirements:
+* How to use
+** Requirements
 This project uses the c2logic compiler.
-** Parts:
-*** bring.c:
+** Parts
+*** bring.c
 Finds empty units and fills them with whatever resource they are asking for.
-
+**** Setup
 Program a processor with links to a cell and nucleus. I recommend a hyper processor.
-*** order_take.c:
+*** order_take.c
 Summons idle units, tells them what resource it wants, then dumps this resource in the vault
-
+**** Setup
 Program a processor with links to a memory cell and vault. Optionally to a message for debugging. No lower than logic processor.
-*** hire.c:
+*** hire.c
 Sets up units for use in this system. There still needs to be a configurable limit for how many units to steal.
-
+**** Setup
 Program a logic processor with links to a memory cell. Doesn't need to be fast so micro will do.
-** Configuration:
+** Configuration
 Relevant comments and variables for configuration are in
-- setup.c
-- consts.h
+- helpers/setup.c
+- helpers/consts.h
