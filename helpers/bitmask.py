@@ -41,7 +41,7 @@ def modify_flag(flag, index, val):
     return flag | val
 
 
-class int_array(list):
+class IntBackedArray(list):
     def __init__(self, lengths):
         self.lengths = tuple(lengths)
         self.flag = 0
