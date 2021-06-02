@@ -61,11 +61,13 @@
 // Change IDENT if you want to be special
 #define IDENT 19
 #define UNIT "flare"
+// Bitmap for what resources to grab from the core
+#define NEEDED 5120	 // 1<<PHASE_FABRIC | 1<<SILICON
 // Will only call for resouces when (amount / capacity) is less than this.
 #define THRESHOLD_FULL .75
 
 // Don't take resources if amount in core is less than this number
-#define THRESHOLD_CORE_FULL 20
+#define THRESHOLD_CORE_FULL 1000
 
 // Set this to the unit carrying capacity
 #define INCR_TAKE 40

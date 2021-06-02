@@ -13,12 +13,9 @@ int compute_write_mask(int length, int _end) {
 void setup() {
 	while (!read(cell1, 0)) {
 		int index;
-		/* Change for what resources should be carried to storage vault.
-		   Each resource needs to be in memory starting from OFFSET_RESOURCE_NEEDED to
-		   OFFSET_RESOURCE_NEEDED + LEN_RESOURCE_NEEDED
-*/
+
 		index = 0;
-		int needed = 5120;	// PHASE_FABRIC | SILICON
+		int needed = NEEDED;
 		for (int resource_num = 0; (resource_num < LEN_RESOURCE_NEEDED) & (needed > 0);
 			 resource_num++) {
 			int will_write = needed & 1;
