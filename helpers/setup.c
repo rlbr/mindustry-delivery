@@ -56,7 +56,7 @@ void setup() {
 			write(compute_write_mask(length, _end), cell1, OFFSET_WRITE_MASK + i);
 		}
 		// mark as configured with a random vault id
-		if (read(cell1, OFFSET_RESOURCE_NEEDED) == PHASE_FABRIC) {
+		if (read(cell1, OFFSET_NUM_RESOURCES_NEEDED) > 0) {
 			write(ceil(rand(1023)), cell1, 0);
 		}
 	}
