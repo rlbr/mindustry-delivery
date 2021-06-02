@@ -18,6 +18,7 @@ void main() {
 	if (ident != IDENT) {
 		return;
 	}
+	int flag = sensor(unit, "flag");
 	double mode = get_flag(flag, F_MODE);
 	if ((mode == LOADING) | (mode == CLAIMED)) {
 		return;
