@@ -13,7 +13,8 @@ double get_low_resource_int() {
 	double low_resource_count = 90000000;
 	double res_count;
 	double res_int;
-	for (int i = 0; i < LEN_RESOURCE_NEEDED; i++) {
+	int resources_written = read(cell1, OFFSET_NUM_RESOURCES_NEEDED);
+	for (int i = 0; i < resources_written; i++) {
 		res_int = read(cell1, OFFSET_RESOURCE_NEEDED + i);
 		res_count = count_from_resource_int(vault1, res_int);
 		if (res_count < low_resource_count) {

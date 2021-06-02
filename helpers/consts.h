@@ -24,9 +24,10 @@
 #define METAGLASS 14
 
 // <START Memory layout>
-#define OFFSET_RESOURCE_NEEDED 1
+#define OFFSET_NUM_RESOURCES_NEEDED 1
+#define OFFSET_RESOURCE_NEEDED 2
 // Set this to the number of resources you are asking for in setup.c
-#define LEN_RESOURCE_NEEDED 2
+#define LEN_RESOURCE_NEEDED 15
 
 // None of this really needs to be changed.
 #define OFFSET_ENDS BOOST_PP_ADD(OFFSET_RESOURCE_NEEDED, LEN_RESOURCE_NEEDED)

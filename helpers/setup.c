@@ -18,10 +18,18 @@ void setup() {
 		   OFFSET_RESOURCE_NEEDED + LEN_RESOURCE_NEEDED
 */
 		index = 0;
-		write(PHASE_FABRIC, cell1, OFFSET_RESOURCE_NEEDED + index);
-		index++;
-		write(SILICON, cell1, OFFSET_RESOURCE_NEEDED + index);
-		index++;
+		int needed = 5120  // PHASE_FABRIC | SILICON
+			for (int resource_num = 0; resource_num < LEN_RESOURCE_NEEDED && needed > 0;
+				 resource_num++) {
+			int will_write = needed & 1;
+			if (will_write) {
+				write(resource_num, cell1, OFFSET_RESOURCE_NEEDED + index);
+				index++;
+			}
+			needed = needed >> 1;
+		}
+		write(index, cell1, OFFSET_NUM_RESOURCES_NEEDED);
+
 		/* set len/ends for fields. IDENT is supposed to be for cooperating with other logic
 		 * processors and making sure you don't steal ALL the flares on the map. */
 		int sum = BLEN_F_RESOURCE + BLEN_F_MODE + BLEN_F_VAULT_ID + BLEN_F_IDENT;
