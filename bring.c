@@ -15,11 +15,16 @@ void main() {
 		return;
 	}
 	double mode = get_flag(flag, F_MODE);
+	double nx = sensor(nucleus1, "x");
+	double ny = sensor(nucleus1, "y");
+
+	if (mode == IDLE) {
+		unit_move(nx, ny);
+		return;
+	}
 	if (mode != LOADING) {
 		return;
 	}
-	double nx = sensor(nucleus1, "x");
-	double ny = sensor(nucleus1, "y");
 	double resource_int = get_flag(flag, F_RESOURCE);
 	double in_core = count_from_resource_int(nucleus1, resource_int);
 	if (in_core < THRESHOLD_CORE_FULL) {
