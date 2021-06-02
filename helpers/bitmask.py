@@ -2,22 +2,25 @@ from enum import IntEnum
 import functools
 import operator
 
-LEAD = 0
-COPPER = 1
-COAL = 2
-SAND = 3
-SCRAP = 4
-THORIUM = 5
-TITANIUM = 6
-SPORE_POD = 7
-# derived resources
-PYRATITE = 8
-SURGE_ALLOY = 9
-PHASE_FABRIC = 10
-PLASTANIUM = 11
-SILICON = 12
-GRAPHITE = 13
-METAGLASS = 14
+
+class resources(IntEnum):
+    LEAD = 0
+    COPPER = 1
+    COAL = 2
+    SAND = 3
+    SCRAP = 4
+    THORIUM = 5
+    TITANIUM = 6
+    SPORE_POD = 7
+    # derived resources
+    PYRATITE = 8
+    SURGE_ALLOY = 9
+    PHASE_FABRIC = 10
+    PLASTANIUM = 11
+    SILICON = 12
+    GRAPHITE = 13
+    METAGLASS = 14
+
 
 length_vals = [0] * 4
 
