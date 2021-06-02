@@ -69,23 +69,6 @@ void main_inner() {
 		flag = mod_flag(flag, F_VAULT_ID, this_vault_id);
 		flag = mod_flag(flag, F_MODE, LOADING);
 		unit_flag(flag);
-
-	} else {
-		int unit_vault_id = get_flag(flag, F_VAULT_ID);
-		// check if we own this unit
-		if (this_vault_id != unit_vault_id)
-			return;
-		// better throughput if we can move units we own at the same time
-		if (!unit_within(vx, vy, 2)) {
-			unit_move(vx, vy);
-			unit_item_drop(vault1, INCR_DROP);
-			return;
-		}
-		// unit has arrived
-		unit_item_drop(vault1, INCR_DROP);
-		// mark as idle
-		flag = mod_flag(flag, F_MODE, IDLE);
-		unit_flag(flag);
 	}
 }
 void main() {
