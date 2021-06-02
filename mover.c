@@ -10,7 +10,7 @@ extern struct MindustryObject message1;
 void main() {
 	setup();
 	int this_vault_id = read(cell1, 0);
-	ubind("flare");
+	ubind(UNIT);
 	int flag = sensor(unit, "flag");
 	double ident = get_flag(flag, F_IDENT);
 	double vx = sensor(vault1, "x");

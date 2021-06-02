@@ -31,7 +31,7 @@ void main_inner() {
 	int this_vault_id = read(cell1, 0);
 	print("VAULT_ID ");
 	printdln(this_vault_id);
-	ubind("flare");
+	ubind(UNIT);
 	int flag = sensor(unit, "flag");
 	double ident = get_flag(flag, F_IDENT);
 	print("IDENT ");

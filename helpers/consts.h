@@ -60,7 +60,7 @@
 // <START application constants>
 // Change IDENT if you want to be special
 #define IDENT 19
-
+#define UNIT "flare"
 // Will only call for resouces when (amount / capacity) is less than this.
 #define THRESHOLD_FULL .75
 

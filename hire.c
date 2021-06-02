@@ -7,7 +7,7 @@ extern struct MindustryObject cell1;
 extern struct MindustryObject unit;
 void main() {
 	setup();
-	ubind("flare");
+	ubind(UNIT);
 	int flag = sensor(unit, "flag");
 	int ident = get_flag(flag, F_IDENT);
 	if (ident != IDENT) {
