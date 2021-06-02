@@ -18,9 +18,9 @@ void setup() {
 		   OFFSET_RESOURCE_NEEDED + LEN_RESOURCE_NEEDED
 */
 		index = 0;
-		int needed = 5120  // PHASE_FABRIC | SILICON
-			for (int resource_num = 0; resource_num < LEN_RESOURCE_NEEDED && needed > 0;
-				 resource_num++) {
+		int needed = 5120;	// PHASE_FABRIC | SILICON
+		for (int resource_num = 0; (resource_num < LEN_RESOURCE_NEEDED) & (needed > 0);
+			 resource_num++) {
 			int will_write = needed & 1;
 			if (will_write) {
 				write(resource_num, cell1, OFFSET_RESOURCE_NEEDED + index);
