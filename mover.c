@@ -20,10 +20,7 @@ void main() {
 	}
 	int flag = sensor(unit, "flag");
 	double mode = get_flag(flag, F_MODE);
-	if ((mode == LOADING) | (mode == CLAIMED)) {
-		return;
-	}
-	if (mode != IDLE) {
+	if (mode == FULL) {
 		int unit_vault_id = get_flag(flag, F_VAULT_ID);
 		// check if we own this unit
 		if (this_vault_id != unit_vault_id)

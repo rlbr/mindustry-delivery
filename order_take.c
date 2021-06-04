@@ -42,34 +42,34 @@ void main_inner() {
 		println("WRONG IDENT");
 		return;
 	}
+	int flag = sensor(unit, "flag");
 	double mode = get_flag(flag, F_MODE);
 	print("MODE ");
 	printdln(mode);
-	if ((mode == LOADING) | (mode == CLAIMED)) {
+	if (mode != IDLE) {
 		println("WRONG MODE");
 		return;
 	}
 	double resource_int = get_low_resource_int();
 	print("RESOURCE ");
 	printdln(resource_int);
-	if (mode == IDLE) {
-		double count = count_from_resource_int(vault1, resource_int);
-		double storage = sensor(vault1, "itemCapacity");
-		// don't be greedy
-		if (count / storage > THRESHOLD_FULL) {
-			return;
-		}
-		println("NOT FULL");
-		// claim any idle units immediately
-		flag = mod_flag(flag, F_MODE, CLAIMED);
-		unit_flag(flag);
-		println("CLAIMED");
-		// set relevant parameters
-		flag = mod_flag(flag, F_RESOURCE, resource_int);
-		flag = mod_flag(flag, F_VAULT_ID, this_vault_id);
-		flag = mod_flag(flag, F_MODE, LOADING);
-		unit_flag(flag);
+
+	double count = count_from_resource_int(vault1, resource_int);
+	double storage = sensor(vault1, "itemCapacity");
+	// don't be greedy
+	if (count / storage > THRESHOLD_FULL) {
+		return;
 	}
+	println("NOT FULL");
+	// claim any idle units immediately
+	flag = mod_flag(flag, F_MODE, CLAIMED);
+	unit_flag(flag);
+	println("CLAIMED");
+	// set relevant parameters
+	flag = mod_flag(flag, F_RESOURCE, resource_int);
+	flag = mod_flag(flag, F_VAULT_ID, this_vault_id);
+	flag = mod_flag(flag, F_MODE, LOADING);
+	unit_flag(flag);
 }
 void main() {
 	main_inner();
