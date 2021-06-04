@@ -61,8 +61,15 @@
 // Change IDENT if you want to be special
 #define IDENT 19
 #define UNIT "flare"
+
 // Bitmap for what resources to grab from the core
-#define NEEDED 5120	 // 1<<PHASE_FABRIC | 1<<SILICON
+
+// #define NEEDED                                                        \
+	32321  // 1<<LEAD | 1<<TITANIUM | 1<<SURGE_ALLOY | 1<<PHASE_FABRIC | 1<<PLASTANIUM | 1<<SILICON
+// | 1<<GRAPHITE | 1<<METAGLASS |
+
+// #define NEEDED 5120	 // 1<<PHASE_FABRIC | 1<<SILICON
+
 // Will only call for resouces when (amount / capacity) is less than this.
 #define THRESHOLD_FULL .75
 
