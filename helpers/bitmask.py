@@ -1,4 +1,6 @@
 from enum import IntEnum
+import functools
+import operator
 
 LEAD = 0
 COPPER = 1
@@ -56,6 +58,11 @@ def modify_flag(flag, index, val):
     flag = flag & mask
     val = val << ends[index]
     return flag | val
+
+
+def calculate_NEEDED(*needed):
+    res_flags = map(lambda r: 1 << r, needed)
+    return functools.reduce(operator.or_, res_flags)
 
 
 class IntBackedArray(list):
