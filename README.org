@@ -16,5 +16,4 @@ Sets up units for use in this system. There still needs to be a configurable lim
 Program a logic processor with links to a memory cell. Doesn't need to be fast so micro will do.
 ** Configuration
 Relevant comments and variables for configuration are in
-- helpers/setup.c
 - helpers/consts.h

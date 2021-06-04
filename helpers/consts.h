@@ -26,7 +26,7 @@
 // <START Memory layout>
 #define OFFSET_NUM_RESOURCES_NEEDED 1
 #define OFFSET_RESOURCE_NEEDED 2
-// Set this to the number of resources you are asking for in setup.c
+// Set this to the number of resources defined above
 #define LEN_RESOURCE_NEEDED 15
 
 // None of this really needs to be changed.
@@ -60,6 +60,7 @@
 // <START application constants>
 // Change IDENT if you want to be special
 #define IDENT 19
+// What unit to use for logistics
 #define UNIT "flare"
 
 // Bitmap for what resources to grab from the core
